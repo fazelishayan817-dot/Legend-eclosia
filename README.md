@@ -6,7 +6,7 @@ Un RPG de créatures en pixel art, jouable directement dans le navigateur (ordin
 
 Une fois GitHub Pages activé, le jeu est accessible ici :
 
-**https://fazelishayan817-dot.github.io/legend-eclosia/**
+**https://fazelishayan817-dot.github.io/Legend-eclosia/**
 
 ## Contenu
 
