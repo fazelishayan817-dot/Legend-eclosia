@@ -1,0 +1,95 @@
+/* ============================================================
+   ÉCLOSIA — thème HD-2D : verre dépoli sombre, accents dorés,
+   typographie lisible (même style que l'étape 1 HD-2D)
+   ============================================================ */
+:root { --pix: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif; }
+#ui, #objx, #radarx, #clockx {
+  --paper: rgba(18, 24, 40, 0.72); --ink: #f4f6fb; --line: rgba(255, 255, 255, 0.26);
+  --accent: #ffd86a; --dawn: #ffd86a; --muted: #b8c2d8; --dim: #b8c2d8;
+  --glass: rgba(18, 24, 40, 0.62); --glass-b: rgba(255, 255, 255, 0.22);
+}
+body { font-family: var(--pix); }
+
+/* boîtes : verre sombre, bord fin lumineux, coins arrondis */
+#ui .dlg, #ui .menu, #ui .hud, #ui .btext, #ui .loc, #ui .toast, #ui .money, #ui .qty, #ui .sdesc, #ui .saveinfo, #ui .minfo, #ui .pcprev {
+  background: var(--glass); color: var(--ink);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3);
+  border: 1px solid var(--glass-b); border-radius: calc(var(--px) * 5);
+  box-shadow: 0 calc(var(--px) * 3) calc(var(--px) * 12) rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+#ui .btext { border-radius: calc(var(--px) * 5) calc(var(--px) * 5) 0 0; border-bottom: 0; }
+#ui .panel { background: rgba(14, 18, 32, 0.9); color: var(--ink); -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2); border-radius: calc(var(--px) * 4); }
+#ui .dlg { line-height: 1.4; }
+#ui .dlg .spk { background: var(--accent); color: #1a1424; border-radius: 999px; padding: 0 calc(var(--px) * 5); box-shadow: 0 calc(var(--px) * 1) calc(var(--px) * 4) rgba(0,0,0,.35); }
+#ui .more { border-top-color: var(--accent); }
+#ui .loc { left: 50% !important; translate: -50% 0; color: var(--accent); }
+
+/* menus : sélection dorée, cibles confortables */
+#ui .menu .mt, #ui .ptitle, #ui .ctx h4, #ui .ctop .cn, #ui .cl .mi b, #ui .btabs .on, #ui .acard .ab, #ui .acard .al, #ui .sn em { color: var(--accent); }
+#ui .mi, #ui .gi { color: var(--ink); border-radius: calc(var(--px) * 2.5); }
+#ui .mi.sel, #ui .gi.sel, #ui .menu.grid .gi.sel { background: rgba(255, 216, 106, 0.18); color: #ffe9a8; font-weight: 600; }
+#ui .mi.dis, #ui .gi.dis { color: rgba(244, 246, 251, 0.38); }
+#ui .mi b, #ui .pn small, #ui .ph small, #ui .sx, #ui .smv b, #ui .cr p, #ui .bdesc, #ui .minfo .cat, #ui .cb small, #ui .btabs, #ui .namep label, #ui .yearp .yhint, #ui .mhint { color: var(--dim); }
+#ui .minfo .effh { color: var(--accent); }
+#ui .scroll .up { border-bottom-color: var(--accent); } #ui .scroll .dn { border-top-color: var(--accent); }
+
+/* barres */
+#ui .bar { background: rgba(0, 0, 0, 0.42); border: 0; border-radius: 999px; }
+#ui .xpb { background: rgba(255, 255, 255, 0.14); border-radius: 999px; }
+#ui .hpl b { color: var(--accent); }
+#ui .hn .ct { background: var(--accent); }
+
+/* équipe, résumé, codex, carte, sac */
+#ui .pslot { background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.14); border-radius: calc(var(--px) * 4); }
+#ui .pslot.sel { border-color: var(--accent); box-shadow: 0 0 0 calc(var(--px) * .8) rgba(255, 216, 106, .6); }
+#ui .pslot.swap { background: rgba(255, 216, 106, 0.18); }
+#ui .pslot.ko { background: rgba(239, 106, 90, 0.16); }
+#ui .sl img, #ui .cr img, #ui .ctop img { background: radial-gradient(circle at 50% 70%, rgba(255,255,255,.14) 0 55%, transparent 56%); }
+#ui .sr td { border-bottom-color: rgba(255, 255, 255, 0.1); }
+#ui .acard { background: rgba(255, 255, 255, 0.07); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); }
+#ui .acard .ah { color: #ff9a86; }
+#ui .ctx .nv { color: #8ab8ff; }
+#ui .bdg { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.25); }
+#ui .bdg.on { background: var(--tc); border-color: #fff; box-shadow: 0 0 0 calc(var(--px) * 1) rgba(255,255,255,.5); }
+#ui .portrait { background: radial-gradient(circle at 50% 35%, #3a4a72 0%, #1c2540 70%); box-shadow: 0 0 0 1px rgba(255,255,255,.35), 0 calc(var(--px) * 3) calc(var(--px) * 10) rgba(0,0,0,.4); border-radius: calc(var(--px) * 6); animation: portin .25s ease-out; }
+@keyframes portin { from { opacity: 0; transform: translateY(calc(var(--px) * 4)) scale(.96); } to { opacity: 1; transform: none; } }
+#ui .namep input { background: rgba(255,255,255,.08); color: var(--ink); border-color: var(--glass-b); }
+#ui .looks button { background: rgba(255,255,255,.08); } #ui .looks button.on { background: rgba(255,216,106,.22); border-color: var(--accent); }
+#ui #go { background: var(--accent); color: #1a1424; }
+#ui .preview { border-color: var(--glass-b); }
+
+/* Boîte PC 7G en version sombre */
+.pcx .pxh { color: var(--ink); } .pcx .pxpg i, .pcx .pxclose { background: rgba(255,255,255,.1); }
+.pcx .pxparty small, .pcx .pxmsg { color: var(--dim); }
+.pcx .pxs em { color: #fff; text-shadow: 0 0 3px #000; }
+.pcx .pxd { background: rgba(255,255,255,.06); color: var(--ink); }
+.pcx .pxd.empty, .pcx .pxdn small, .pcx .pxmv small { color: var(--dim); }
+.pcx .pxbar, .pcx .pxst i { background: rgba(0,0,0,.4); }
+
+/* coque verte de la console conservée (couleurs d'origine) */
+.btn, #help kbd { font-family: var(--pix); }
+
+/* puce heure et météo sous le radar */
+#clockx { position: absolute; right: 1.6%; top: calc(2.4% + 23.5cqw); z-index: 22; width: 22cqw; text-align: center; font: 600 2.2cqw var(--pix); color: #fff; padding: .5cqw 0; border-radius: 999px;
+  background: rgba(16, 24, 36, 0.5); border: 1px solid rgba(255,255,255,.3); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+#ui .menu .mi.sel, #ui .cl .mi.sel, #ui .menu.grid .gi.sel, #ui .grid .gi.sel { color: #ffe9a8 !important; background: rgba(255, 216, 106, 0.18) !important; }
+#ui .mi.sel::before, #ui .gi.sel::before { border-left-color: var(--accent) !important; }
+#ui .dlg { z-index: 32; }
+#ui .mi.sel span, #ui .gi.sel span { color: #ffe9a8 !important; }
+#ui .mi.sel::before, #ui .gi.sel::before { filter: drop-shadow(0 0 calc(var(--px) * .8) rgba(255,216,106,.8)) !important; }
+
+/* ---------- Boîte PC : couleurs par boîte ---------- */
+#ui .pcx { --pca: #1c4a7a; --pcb: #7ac0f0; --pcc: #5ab0e8;
+  background: radial-gradient(120% 90% at 100% 0%, color-mix(in srgb, var(--pcb) 35%, transparent), transparent 60%), linear-gradient(160deg, color-mix(in srgb, var(--pca) 92%, #000), color-mix(in srgb, var(--pca) 55%, #05070e)); transition: background .3s; }
+.pcx .pxgrid { background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--pcb) 10%, transparent) 0 calc(var(--px) * 4), transparent calc(var(--px) * 4) calc(var(--px) * 8)); border-radius: calc(var(--px) * 3); padding: calc(var(--px) * 1.5); }
+.pcx .pxs { background: color-mix(in srgb, var(--pcb) 14%, rgba(255,255,255,.04)); border-color: color-mix(in srgb, var(--pcb) 35%, transparent); }
+.pcx .pxs.cur { border-color: var(--pcc); box-shadow: 0 0 0 calc(var(--px) * .8) var(--pcc), 0 0 calc(var(--px) * 6) color-mix(in srgb, var(--pcc) 60%, transparent); }
+.pcx .pxs.held { background: color-mix(in srgb, var(--pcc) 40%, transparent); }
+.pcx .pxh b { color: var(--pcc); }
+.pcx .pxcol { font-style: normal; cursor: pointer; padding: 0 calc(var(--px) * 4); border-radius: 99px; background: var(--pcc); color: #10141f; font-weight: 700; font-size: calc(var(--px) * 5.5); }
+.pcx .pxst u { background: var(--pcc); }
+/* menu principal : style d'origine, avec icônes */
+#ui .smlist { padding-left: calc(var(--px) * 12); }
+#ui .smlist .mi span { display: flex; align-items: center; gap: calc(var(--px) * 3); }
+#ui .smlist .mi svg { width: calc(var(--px) * 8.5); height: calc(var(--px) * 8.5); flex: none; fill: none; stroke: var(--c); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#ui .smlist .mi.sel svg { stroke: #ffe9a8; }
